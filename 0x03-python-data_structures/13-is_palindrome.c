@@ -5,41 +5,29 @@
  * @head: head pointer.
  * Return: 0 if not a palindrome, 1 if it is a palindrome
  */
-int	is_palindrome(listint_t **head)
+int is_palindrome(listint_t **head)
 {
-	listint_t *tmp;
+	listint_t	*tmp;
 	int i = 0, j = 0, k = 0, l = 0;
-	int *array;
+	int arr[10000];
 
 	tmp = *head;
-	array = NULL;
-	if (*head == NULL)
+	if (!head || !*head)
 		return (1);
-	while (tmp != NULL)
+	while (tmp)
 	{
-		tmp = tmp->next;
-		i++;
-	}
-	array = malloc(sizeof(int) * i);
-	if (array == NULL)
-		return (0);
-	tmp = *head;
-	i = 0;
-	while (tmp != NULL)
-	{
-		array[i] = tmp->n;
+		arr[i] = tmp->n;
 		tmp = tmp->next;
 		i++;
 	}
 	j = i - 1;
 	while (k < j)
 	{
-		if (array[k] != array[j])
+		if (arr[k] != arr[j])
 			l++;
 		k++;
 		j--;
 	}
-	free(array);
 	if (l == 0)
 		return (1);
 	else
