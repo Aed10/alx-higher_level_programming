@@ -1,4 +1,6 @@
 #include <Python.h>
+#include <listobject.h>
+#include <object.h>
 #include <stdio.h>
 
 /**
@@ -8,8 +10,7 @@
  */
 void	print_python_list(PyObject *p)
 {
-	PyObject	*item;
-
+	PyObject *item;
 	Py_ssize_t i, size;
 
 	size = PyList_Size(p);
@@ -30,7 +31,7 @@ void	print_python_list(PyObject *p)
  */
 void	print_python_bytes(PyObject *p)
 {
-	char	*str;
+	char *str;
 	Py_ssize_t i, size;
 
 	printf("[.] bytes object info\n");
