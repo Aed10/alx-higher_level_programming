@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 # 1-square.py ED-Ayoub
+"""Defines a square """
 
 
 class Square:
