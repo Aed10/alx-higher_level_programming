@@ -32,14 +32,16 @@ class Square:
         self.__size = value
 
     def my_print(self):
-        """Print the square with the # character."""
-        if self.__size == 0:
+        if self.size == 0:
             print()
-        else:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end="")
-                print()
+            return
+        for x in range(self.position[1]):
+            print()
+        for x in range(self.size):
+            print("{}{}".format(" " * self.position[0], "#" * self.size))
+        """
+        prints a square of hashtags based on position and size
+        """
 
     @property
     def position(self):
