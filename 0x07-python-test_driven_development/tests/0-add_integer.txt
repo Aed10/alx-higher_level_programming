@@ -1,0 +1,74 @@
+# # 0-add_integer.txt
+# @Aed10
+
+===========================
+How to use 0-add_integer.py
+===========================
+
+This module defines an addition function for integers or float numbers ``add_integer(a, b=98)``.
+
+Usage:
+------
+
+``add_integer(a,b)`` return the sum of a and b if a and b are integers .
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(1, 2)
+    3
+
+    >>> add_integer(100, -2)
+    98
+
+
+Works also for float numbers, it cast float to ints before is performed .
+
+    >>> add_integer(100.3, -2)
+    98
+
+    >>> add_integer(100.9, 10.1)
+    110
+
+
+Float and integers can be combined .
+
+    >>> add_integer(-20.9, 10)
+    -10
+
+
+Raise TypeError, if a or b are not numbers .
+
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer     
+
+
+
+The Second Argument is Optionnal .
+
+    >>> add_integer(2)
+    100
+
+
+The first One is obligatory .
+
+    >>> add_integer(,10)
+    TypeError
+
+
+
+The Edge cases in numbers .
+
+    >>> add_integer(int(inf))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(int(inf), 1)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+    
