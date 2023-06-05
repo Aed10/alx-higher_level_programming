@@ -39,12 +39,12 @@ Raise TypeError, if a or b are not numbers .
 
     >>> add_integer(4, "School")
     Traceback (most recent call last):
-    ...
-    TypeError: a must be an integer
+        ...
+    TypeError: b must be an integer
     
     >>> add_integer(None)
     Traceback (most recent call last):
-    ...
+        ...
     TypeError: a must be an integer     
 
 
@@ -58,17 +58,19 @@ The Second Argument is Optionnal .
 The first One is obligatory .
 
     >>> add_integer(,10)
-    TypeError
+    Traceback (most recent call last):
+        ...
+    SyntaxError: invalid syntax
 
 
 
 The Edge cases in numbers .
 
-    >>> add_integer(int(inf))
+    >>> add_integer(float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
-    >>> add_integer(int(inf), 1)
+    >>> add_integer(1, float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
     
