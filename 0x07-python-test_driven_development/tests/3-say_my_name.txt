@@ -1,0 +1,38 @@
+**** Module to print a name of a user ****
+
+# Import The module.
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    
+# Test1: Print a name.
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+# Test2: Print a name without second name.
+    >>> say_my_name("Walter")
+    My name is Walter 
+
+# Test3: Second name was not a string.
+    >>> say_my_name("Bob", 12)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string
+
+# Test4: First name was not a string.
+    >>> say_my_name(12, "Newman")
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+# Test5: First name was not provided.
+    >>> say_my_name()
+    Traceback (most recent call last):
+        ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+# Test6: First name was Empty.
+    >>> say_my_name("", "Newman")
+    My name is  Newman
+
+# Test7: Second and first name are Empties.
+    >>> say_my_name("")
+    My name is  
