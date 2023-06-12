@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Module that contains a class Square that inherits from Rectangle
-    (9-rectangle.py). (task based on 10-square.py). (task based on 4-inherits_from.py)"""
+    (9-rectangle.py). (task based on 10-square.py).
+    (task based on 4-inherits_from.py)"""
 
 
 Rectangle = __import__('9-rectangle').Rectangle
