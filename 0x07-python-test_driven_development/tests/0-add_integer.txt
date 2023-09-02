@@ -1,0 +1,49 @@
+The ``0-add_integer.py`` module
+===============================
+
+Using ``add_integer``
+--------------------
+
+First, import ``add_integer`` from ``0-add_integer`` module:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Now Test it:
+
+Case 0:
+	Test foncionality of our function in normal case:
+	case 1: (b not provided)
+	
+	>>> add_integer(100)
+	198
+
+	case 2: (b provided)
+	
+	>>> add_integer(100, -20)
+	80
+
+
+Case 1:
+	If a is not a float or int:
+
+	>>> add_integer("School")
+	Traceback (most recent call last):
+		...
+	TypeError: a must be an integer
+
+Case 2:
+	If b is not a float or int:
+	
+	>>> add_integer(10, 1j)
+	Traceback (most recent call last):
+		...
+	TypeError: b must be an integer
+
+Case 3:
+	a is not provided:
+	
+	>>> add_integer(b=100)
+	Traceback (most recent call last):
+		...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+	 
