@@ -11,11 +11,13 @@ class Rectangle:
         """Initialize a Rectangle object.
 
         Args:
-            width (int): A private attribute representing the width of the rectangle.
-            height (int): A private attribute representing the height of the rectangle.
+            width (int): A private attribute representing
+                the width of the rectangle.
+            height (int): A private attribute representing
+                the height of the rectangle.
         """
-        self._width = width
-        self._height = height
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
