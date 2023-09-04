@@ -85,8 +85,8 @@ class Rectangle:
         """Print the Rectangle Object."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        Rectangle = ""
+        rectangle_str = ""
         for _ in range(self.__height):
-            Rectangle += "#" * self.__width + "\n"
+            rectangle_str += "#" * self.__width + "\n"
 
-        return Rectangle[:-1]
+        return rectangle_str[:-1]
