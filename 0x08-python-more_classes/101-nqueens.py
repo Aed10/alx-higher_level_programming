@@ -8,6 +8,7 @@ class Queen:
         N: The size of our board(N*N), and the number of queens.
         positions: List of all possible positions for the queen obj.
     """
+
     def __init__(self, N):
         """Initialize our object.
         Args:
@@ -50,7 +51,7 @@ class Queen:
 
 def main():
     if len(sys.argv) != 2:
-        print('Usage: python nqueens.py N')
+        print('Usage: nqueens N')
         sys.exit(1)
 
     try:
@@ -63,14 +64,14 @@ def main():
         sys.exit(1)
 
     queen = Queen(N)
-    """
-    To print Graphically the solution.
-    for solution in queen.solutions:
+
+    # To print Graphically the solution.
+    """for solution in queen.solutions:
         for row, col in solution:
-           # print('.' * col + 'Q' + '.' * (N - col - 1))
-            print([row, col], end = ", ")
+            print('.' * col + 'Q' + '.' * (N - col - 1))
+            # print([row, col], end = ", ")
         print()
-        """
+    """
     for i in range(len(queen.solutions)):
         print(queen.solutions[i])
 
