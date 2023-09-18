@@ -74,7 +74,7 @@ class Base:
         Returns:
             list: A list of dictionaries extracted from the JSON string.
         """
-        if json_string in [None, []]:
+        if json_string in [None, "[]"]:
             return []
         return json.loads(json_string)
 
