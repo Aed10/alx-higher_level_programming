@@ -39,7 +39,7 @@ class Base:
             str: A JSON string representation of the list of dictionaries.
         """
         if list_dictionaries in [None, []]:
-            return []
+            return "[]"
         else:
             return json.dumps(list_dictionaries)
 
