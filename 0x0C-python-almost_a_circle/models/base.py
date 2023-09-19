@@ -177,10 +177,10 @@ class Base:
 
         turt.color("#ffffff")
         for rect in list_rectangles:
-            turt.showturtle()
-            turt.up()
-            turt.goto(rect.x, rect.y)
-            turt.down()
+            # turt.showturtle()
+            # turt.up()
+            # turt.goto(rect.x, rect.y)
+            # turt.down()
             for i in range(2):
                 turt.forward(rect.width)
                 turt.left(90)
