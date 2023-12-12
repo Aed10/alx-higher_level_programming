@@ -6,7 +6,6 @@ This folder contains projects and exercises related to high-level programming la
 
 - [Introduction](#introduction)
 - [Projects](#projects)
-- [Exercises](#exercises)
 
 ## Introduction
 
