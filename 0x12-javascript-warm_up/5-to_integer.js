@@ -1,8 +1,8 @@
 #!/usr/bin/node
 if (process.argv[2] === undefined) {
-  console.log('No argument');
+    console.log('No argument');
 } else if (!Number(process.argv[2])) {
-  console.log('Not a number');
+    console.log('Not a number');
 } else {
-  console.log(Math.round(Number(process.argv[2])));
+    console.log("My number: " + Math.round(Number(process.argv[2])));
 }
