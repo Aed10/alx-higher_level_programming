@@ -6,13 +6,10 @@ if (process.argv.length === 2 || process.argv.length === 3) {
 } else {
   for (let i = 2; i < process.argv.length; i++) {
     const arg = Number(process.argv[i]);
-
-    if (arg > max) {
-      max = arg;
-      list.push(max);
-    }
+    list.push(arg); // ajouter tous les arguments à la liste
   }
-  max = list.slice(-2, -1)[0];
+  list.sort((a, b) => b - a); // trier la liste par ordre décroissant
+  max = list[1]; // accéder au deuxième élément
 }
 
 console.log(max);
