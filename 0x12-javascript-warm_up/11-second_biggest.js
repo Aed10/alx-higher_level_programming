@@ -1,7 +1,7 @@
 #!/usr/bin/node
 let max = 0;
 const list = [];
-if (process.argv.length === 2) {
+if (process.argv.length === 2 || process.argv.length === 3) {
   max = 0;
 } else {
   for (let i = 2; i < process.argv.length; i++) {
