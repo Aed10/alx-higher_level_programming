@@ -1,4 +1,17 @@
 #!usr/bin/python3
+"""
+This script connects to a MySQL database and prints a list of states whose
+names start with the letter 'N'.
+
+Usage: python3 mysql_example.py <username> <password> <database>
+
+Dependencies:
+    - MySQL-python library
+
+Example:
+    python3 mysql_example.py username password database
+"""
+
 import MySQLdb
 import sys
 
