@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usrv/bin/python3
 """
 This script connects to a MySQL database and prints a list of states whose
 names start with the letter 'N'.
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3],
     )
-    query = "SELECT id,name FROM `states` WHERE name LIKE 'N%' ORDER BY id;"
+    query = "SELECT id, name FROM `states` WHERE name LIKE 'N%' ORDER BY id ASC;"
     Cursor = Connectivity.cursor()
     Cursor.execute(query)
     [print(state) for state in Cursor.fetchall()]
