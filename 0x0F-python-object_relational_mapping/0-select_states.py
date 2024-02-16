@@ -1,25 +1,24 @@
 #!/usr/bin/python3
 """
-This script connects to a MySQL database and selects all the states from the states table.
+This script connects to a MySQL server and retrieves all states
+from the database hbtn_0e_0_usa.
 
-Usage:
-    0-select_states.py <username> <password> <database_name>
+Usage: python3 list_states.py <mysql_username> <mysql_password> <database_name>
 
-Example:
-    0-select_states.py root password example_database
+The script takes 3 arguments: mysql username, mysql password, and database name
+(no argument validation is done).
 
-Note:
-    This script assumes that there is a table named "states" in the specified database with the following columns:
-    id, name, abbr, capital, population, region
+It uses the MySQLdb module to connect to the MySQL server.
+
+The results are sorted in ascending order by states.id and displayed
+as they are in the example below.
+
+The code is not executed when the script is imported.
 """
-
 import MySQLdb
 import sys
 
-
-def select_states():
-    """Connects to a MySQL database and selects all the states from the states table."""
-    # Connect to the MySQL database
+if __name__ == "__main__":
     Connectivity = MySQLdb.connect(
         host="127.0.0.1",
         port=3306,
@@ -27,28 +26,8 @@ def select_states():
         passwd=sys.argv[2],
         db=sys.argv[3],
     )
-
-    # Create a cursor to execute SQL queries
     Cursor = Connectivity.cursor()
-
-    # Execute the SELECT query
     Cursor.execute("SELECT * FROM `states`;")
-
-    # Fetch all the results and print them
-    states = Cursor.fetchall()
-    [print(state) for state in states]
-
-    # Close the cursor and connection
+    [print(state) for state in Cursor.fetchall()]
     Cursor.close()
     Connectivity.close()
-
-
-if __name__ == "__main__":
-    # Check if the correct number of arguments are passed
-    if len(sys.argv) != 4:
-        print("Error: incorrect number of arguments")
-        print("Usage: 0-select_states.py <username> <password> <database_name>")
-        sys.exit(1)
-
-    # Call the select_states function
-    select_states()
