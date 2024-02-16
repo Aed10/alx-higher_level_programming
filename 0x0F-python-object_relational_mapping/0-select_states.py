@@ -27,7 +27,7 @@ if __name__ == "__main__":
         db=sys.argv[3],
     )
     Cursor = Connectivity.cursor()
-    Cursor.execute("SELECT * FROM `states`;")
+    Cursor.execute("SELECT * FROM `states` ORDER BY id ASC;")
     [print(state) for state in Cursor.fetchall()]
     Cursor.close()
     Connectivity.close()
