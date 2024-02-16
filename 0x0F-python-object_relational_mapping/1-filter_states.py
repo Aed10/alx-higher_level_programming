@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """
 This script connects to a MySQL database and prints a list of states whose
 names start with the letter 'N'.
