@@ -1,17 +1,25 @@
-#!/home/alpha_10/venv/bin/python3
-"""Write a script that lists all states from the database hbtn_0e_0_usa:
+#!/usr/bin/python3
+"""
+This script connects to a MySQL database and selects all the states from the states table.
 
- - Your script should take 3 arguments: mysql username, mysql password, and database name (no argument validation needed)
- - You must use the module MySQLdb (import MySQLdb)
- - Your script should connect to a MySQL server running on localhost at port 3306
- - Results must be sorted in ascending order by states.id
- - Results must be displayed as they are in the example below
- - Your code should not be executed when imported"""
+Usage:
+    0-select_states.py <username> <password> <database_name>
+
+Example:
+    0-select_states.py root password example_database
+
+Note:
+    This script assumes that there is a table named "states" in the specified database with the following columns:
+    id, name, abbr, capital, population, region
+"""
 
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
+
+def select_states():
+    """Connects to a MySQL database and selects all the states from the states table."""
+    # Connect to the MySQL database
     Connectivity = MySQLdb.connect(
         host="127.0.0.1",
         port=3306,
@@ -19,8 +27,28 @@ if __name__ == "__main__":
         passwd=sys.argv[2],
         db=sys.argv[3],
     )
+
+    # Create a cursor to execute SQL queries
     Cursor = Connectivity.cursor()
+
+    # Execute the SELECT query
     Cursor.execute("SELECT * FROM `states`;")
-    [print(state) for state in Cursor.fetchall()]
+
+    # Fetch all the results and print them
+    states = Cursor.fetchall()
+    [print(state) for state in states]
+
+    # Close the cursor and connection
     Cursor.close()
     Connectivity.close()
+
+
+if __name__ == "__main__":
+    # Check if the correct number of arguments are passed
+    if len(sys.argv) != 4:
+        print("Error: incorrect number of arguments")
+        print("Usage: 0-select_states.py <username> <password> <database_name>")
+        sys.exit(1)
+
+    # Call the select_states function
+    select_states()
