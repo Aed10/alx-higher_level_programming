@@ -3,13 +3,13 @@
 This script connects to a MySQL database and prints a list of states whose
 names matches @name argument.
 
-Usage: python3 mysql_example.py <username> <password> <database>
+Usage: python3 mysql_example.py <username> <password> <database> <state_name>
 
 Dependencies:
     - MySQL-python library
 
 Example:
-    python3 mysql_example.py username password database
+    python3 mysql_example.py username password database 'Arizona'
 """
 
 import MySQLdb
@@ -26,5 +26,10 @@ if __name__ == "__main__":
     name = sys.argv[4]
 
     Cursor = Connectivity.cursor()
-    Cursor.execute("SELECT * FROM `states` ORDER BY `id` ASC")
-    [print(state) for state in Cursor.fetchall() if state[1] == name]
+    Cursor.execute(
+        "SELECT * FROM `states` WHERE BINARY \
+                   name = '{}'".format(
+            name
+        )
+    )
+    [print(state) for state in Cursor.fetchall()]
