@@ -38,7 +38,7 @@ def add_states(username, password, database_name):
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    state = State("Arizona")
+    state = State("Louisiana")
     session.add(state)
     session.commit()
     print(state.id)
