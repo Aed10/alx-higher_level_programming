@@ -16,29 +16,20 @@ Returns:
 Raises:
     ValueError: if the number of args is not 3
 """
-from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-import sys
 
-if __name__ == "__main__":
-    # Create an instance of Base
-    Base = declarative_base()
+Base = declarative_base()
 
-    # Define the State class
-    class State(Base):
-        """
-        The State class represents a row in the states table in the database.
 
-        Args:
-            id (int): The primary key of the state.
-            name (str): The name of the state.
+class State(Base):
+    """Represents a state for a MySQL database.
 
-        Attributes:
-            id (int): The primary key of the state.
-            name (str): The name of the state.
-        """
+    __tablename__ (str): The name of the MySQL table to store States.
+    id (sqlalchemy.Integer): The state's id.
+    name (sqlalchemy.String): The state's name.
+    """
 
-        __tablename__ = "states"
-
-        id = Column(Integer, primary_key=True, autoincrement=True)
-        name = Column(String(128), nullable=False)
+    __tablename__ = "states"
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128), nullable=False)
