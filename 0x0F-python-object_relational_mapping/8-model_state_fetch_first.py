@@ -8,7 +8,7 @@ from model_state import Base, State
 
 def list_states(username, password, database_name):
     """
-    Lists all states from the specified MySQL database.
+    Prints the first State Object from a given MySQL database.
 
     Args:
         username (str): MySQL username.
