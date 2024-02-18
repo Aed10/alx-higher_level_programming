@@ -37,5 +37,20 @@ class State(Base):
     """
 
     __tablename__ = "states"
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(128), nullable=False)
+
+    def __init__(self, name=None):
+        """
+        Initialize a new State instance.
+
+        Args:
+            name (str): The name of the state.
+
+        Returns:
+            None
+
+        Raises:
+            ValueError: If the name is not provided.
+        """
+        self.name = name
