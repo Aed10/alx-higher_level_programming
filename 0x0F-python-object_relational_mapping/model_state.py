@@ -1,21 +1,8 @@
 #!/usr/bin/python3
+# Defines a State model.
+# Inherits from SQLAlchemy Base and links to the MySQL table states.
 
-"""
-This script creates a database table using SQLAlchemy.
 
-Usage: python3 create_database_table.py <username> <password> <database_name>
-
-Args:
-    username (str): MySQL username
-    password (str): MySQL password
-    database_name (str): name of the database to create the table in
-
-Returns:
-    None
-
-Raises:
-    ValueError: if the number of args is not 3
-"""
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
