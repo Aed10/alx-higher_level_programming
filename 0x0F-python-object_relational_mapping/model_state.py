@@ -26,6 +26,18 @@ if __name__ == "__main__":
 
     # Define the State class
     class State(Base):
+        """
+        The State class represents a row in the states table in the database.
+
+        Args:
+            id (int): The primary key of the state.
+            name (str): The name of the state.
+
+        Attributes:
+            id (int): The primary key of the state.
+            name (str): The name of the state.
+        """
+
         __tablename__ = "states"
 
         id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
@@ -35,9 +47,8 @@ if __name__ == "__main__":
     password = sys.argv[2]
     database_name = sys.argv[3]
 
-    mysql_connection_string = (
-        f"mysql://{username}:{password}@localhost:3306/{database_name}"
-    )
+    mysql_connection_string = f"mysql://{username}:{password}@localhost:3306/\
+            {database_name}"
 
     # Create the SQLAlchemy engine
     engine = create_engine(mysql_connection_string)
