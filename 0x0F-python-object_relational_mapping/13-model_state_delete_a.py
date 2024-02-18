@@ -32,7 +32,9 @@ def del_states(username, password, database):
         None
     """
     # Create engine
-    engine = create_engine(f"mysql://{username}:{password}@localhost:3306/{database}")
+    engine = create_engine(
+            f"mysql://{username}:{password}@localhost:3306/{database}"
+    )
 
     # Create session
     Session = sessionmaker(bind=engine)
