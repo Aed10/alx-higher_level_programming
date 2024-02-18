@@ -43,7 +43,7 @@ def list_states(username, password, database_name):
     if first_state:
         print(f"{first_state.id}: {first_state.name}")
     else:
-        print("No states found")
+        print("Nothing")
 
 
 if __name__ == "__main__":
