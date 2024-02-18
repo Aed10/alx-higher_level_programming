@@ -41,6 +41,7 @@ def add_states(username, password, database_name):
     state = State("Arizona")
     session.add(state)
     session.commit()
+    print(state.id)
 
 
 if __name__ == "__main__":
