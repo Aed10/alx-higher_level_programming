@@ -20,27 +20,26 @@ from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 import sys
 
-# Create an instance of Base
-Base = declarative_base()
+if __name__ == "__main__":
+    # Create an instance of Base
+    Base = declarative_base()
 
+    # Define the State class
+    class State(Base):
+        __tablename__ = "states"
 
-# Define the State class
-class State(Base):
-    __tablename__ = "states"
+        id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+        name = Column(String(128), nullable=False)
 
-    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    name = Column(String(128), nullable=False)
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
 
+    mysql_connection_string = (
+        f"mysql://{username}:{password}@localhost:3306/{database_name}"
+    )
 
-username = sys.argv[1]
-password = sys.argv[2]
-database_name = sys.argv[3]
+    # Create the SQLAlchemy engine
+    engine = create_engine(mysql_connection_string)
 
-mysql_connection_string = (
-    f"mysql://{username}:{password}@localhost:3306/{database_name}"
-)
-
-# Create the SQLAlchemy engine
-engine = create_engine(mysql_connection_string)
-
-Base.metadata.create_all(engine)
+    Base.metadata.create_all(engine)
