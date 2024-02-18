@@ -1,4 +1,15 @@
 #!/usr/bin/python3
+"""
+This script connects to a MySQL database and update a state to our database.
+
+Usage: python3 mysql_example.py <username> <password> <database>
+
+Dependencies:
+    - MySQL-python library
+
+Example:
+    python3 mysql_example.py username password database
+"""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
