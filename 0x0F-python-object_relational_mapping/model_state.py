@@ -40,17 +40,5 @@ if __name__ == "__main__":
 
         __tablename__ = "states"
 
-        id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+        id = Column(Integer, primary_key=True, autoincrement=True)
         name = Column(String(128), nullable=False)
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database_name = sys.argv[3]
-
-    mysql_connection_string = f"mysql://{username}:{password}@localhost:3306/\
-            {database_name}"
-
-    # Create the SQLAlchemy engine
-    engine = create_engine(mysql_connection_string)
-
-    Base.metadata.create_all(engine)
