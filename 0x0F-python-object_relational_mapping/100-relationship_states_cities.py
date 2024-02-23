@@ -43,7 +43,6 @@ def add_states(username, password, database_name):
     session.add(state)
     session.commit()
 
-    print(state.id)
     city = City(name="San Francisco", state_id=state.id)
     session.add(city)
     session.commit()
