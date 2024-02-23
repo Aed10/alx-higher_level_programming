@@ -24,7 +24,7 @@ Attributes:
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from relationship_city import Base, City
+from relationship_city import Base
 
 
 class State(Base):
