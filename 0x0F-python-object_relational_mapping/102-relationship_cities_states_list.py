@@ -43,8 +43,6 @@ def list_cities(username, password, database_name):
             sorted_cities = sorted(state.cities, key=lambda city: city.id)
             for city in sorted_cities:
                 print(f"{city.id}: {city.name} -> {state.name}")
-        else:
-            print(f"{state.name}: None")
 
 
 if __name__ == "__main__":
