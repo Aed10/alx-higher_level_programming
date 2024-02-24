@@ -40,7 +40,8 @@ def list_cities(username, password, database_name):
     states = session.query(State).options(joinedload(State.cities)).all()
     for state in states:
         if state.cities:
-            for city in state.cities:
+            sorted_cities = sorted(state.cities, key=lambda city: city.id)
+            for city in sorted_cities:
                 print(f"{city.id}: {city.name} -> {state.name}")
         else:
             print(f"{state.name}: None")
