@@ -12,9 +12,9 @@ Example:
 """
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, joinedload
-from relationship_city import City
+from sqlalchemy.orm import sessionmaker, relationship
 from relationship_state import State
+from relationship_city import City
 
 
 def list_cities(username, password, database_name):
@@ -38,14 +38,12 @@ def list_cities(username, password, database_name):
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).options(joinedload(State.cities)).all()
+    states = session.query(State).join(City).all()
     for state in states:
         print(f"{state.id}: {state.name}")
         if state.cities:
             for city in state.cities:
                 print(f"\t{city.id}: {city.name}")
-        else:
-            print(f"{state.name}: None")
 
 
 if __name__ == "__main__":
