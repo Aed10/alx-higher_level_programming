@@ -11,7 +11,7 @@ Example:
     python3 mysql_example.py username password database
 """
 import sys
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, joinedload
 from relationship_city import City
 from relationship_state import State
@@ -43,7 +43,7 @@ def list_cities(username, password, database_name):
         print(f"{state.id}: {state.name}")
         if state.cities:
             for city in state.cities:
-                print(f"    {city.id}: {city.name}")
+                print(f"\t{city.id}: {city.name}")
         else:
             print(f"{state.name}: None")
 
