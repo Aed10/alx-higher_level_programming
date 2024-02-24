@@ -49,6 +49,8 @@ def list_cities(username, password, database_name):
 
 
 if __name__ == "__main__":
+    # Check if correct number of arguments is provided
+
     if len(sys.argv) != 4:
         print("Usage: python script.py <username> <password> <database_name>")
         sys.exit(1)
