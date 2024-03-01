@@ -18,20 +18,17 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    url = "https://api.github.com/repos/{}/{}/commits".format(
-        sys.argv[2], sys.argv[1]
-    )
+    OWNER = sys.argv[2]
+    REPO = sys.argv[1]
+    url = f"https://api.github.com/repos/{OWNER}/{REPO}/commits"
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    response = requests.get(url, headers=headers)
 
-    response = requests.get(url)
-
-    commit_list = response.json()
-    try:
-        for i in range(10):
-            print(
-                "{}: {}".format(
-                    commit_list[i].get("sha"),
-                    commit_list[i].get("commit").get("author").get("name"),
-                )
-            )
-    except IndexError:
-        pass
+    if response.status_code == 200:
+        commit_list = response.json()[:10]
+        for commit in commit_list:
+            sha = commit["sha"]
+            print(f"{sha}: {commit['commit']['author']['name']}")
