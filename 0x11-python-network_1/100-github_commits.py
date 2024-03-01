@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-import requests
-import sys
-
 
 """
 This script retrieves the latest 10 commits from a GitHub repository.
@@ -17,6 +14,8 @@ Example:
     python3 100-github_commits.py octocat Hello-World
 
 """
+import requests
+import sys
 
 if __name__ == "__main__":
     OWNER = sys.argv[1]
