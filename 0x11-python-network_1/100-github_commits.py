@@ -30,5 +30,5 @@ if __name__ == "__main__":
     if response.status_code == 200:
         commit_list = response.json()[:10]
         for commit in commit_list:
-            sha = commit["sha"]
-            print(f"{sha}: {commit['commit']['author']['name']}")
+            sha = commit.get("sha")
+            print(f"{sha}: {commit.get('commit').get('author').get('name')}")
