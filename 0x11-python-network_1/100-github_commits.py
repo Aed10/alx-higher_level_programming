@@ -21,11 +21,8 @@ if __name__ == "__main__":
     OWNER = sys.argv[1]
     REPO = sys.argv[2]
     url = f"https://api.github.com/repos/{OWNER}/{REPO}/commits"
-    headers = {
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
-    response = requests.get(url, headers=headers)
+
+    response = requests.get(url)
 
     commit_list = response.json()
     try:
