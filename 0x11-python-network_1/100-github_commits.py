@@ -32,5 +32,3 @@ if __name__ == "__main__":
         for commit in commit_list:
             sha = commit["sha"]
             print(f"{sha}: {commit['commit']['author']['name']}")
-    else:
-        print("Error: Failed to retrieve commits")
