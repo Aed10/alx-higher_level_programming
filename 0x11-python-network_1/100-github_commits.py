@@ -18,9 +18,9 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    OWNER = sys.argv[1]
-    REPO = sys.argv[2]
-    url = f"https://api.github.com/repos/{OWNER}/{REPO}/commits"
+    url = "https://api.github.com/repos/{}/{}/commits".format(
+        sys.argv[2], sys.argv[1]
+    )
 
     response = requests.get(url)
 
